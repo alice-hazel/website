@@ -1,0 +1,10 @@
+
+.rom-num {
+    font-size: 0.9em;
+}
+
+.spotlight {
+    color: var(--rosewater);
+    font-style: italic;
+    font-weight: bold;
+}

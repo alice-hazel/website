@@ -1,0 +1,33 @@
+/* ID specific styles */
+#social-links {
+    padding: 0;
+
+    display: grid;
+    /* Dynamically create columns */
+    /*      auto-fit = Create as many columns of the given size as needed */
+    /*      minmax(Npx, 1fr) = 1fr for equal column widths, but with a min size of Npx */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1em;
+}
+
+#social-links li::before {
+    display: none;
+}
+#social-links li>a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#social-links svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#social-links svg path {
+    fill: var(--primary);
+}
+#social-links li:hover svg path {
+    fill: var(--accent);
+}

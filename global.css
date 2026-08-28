@@ -1,0 +1,237 @@
+:root {
+    /* --primary: #40a02b; */
+    --line-width: 0.2rem;
+
+    /* Palette */
+    /*  Based on Catppuccin Frappe */
+    /*  https://catppuccin.com/palette/ */
+    --base: #303446;
+    --text: #c6d0f5;
+    --subtext1: #b5bfe2;
+    --subtext0: #a5adce;
+    --mantle: #292c3c;
+    
+    /* Rainbow palette */
+    --red: #e78284;
+    --peach: #ef9f76;
+    --yellow: #e5c890;
+    --green: #a6e3a1;
+    --sapphire: #85c1dc;
+    --lavender: #b4befe;
+    
+    --maroon: #ea999c;
+    --flamingo: #eebebe;
+    --rosewater: #f2cdcd;
+    --teal: #99d1db;
+    --sky: #99d1db;
+    --blue: #8caaee;
+    --mauve: #ca9ee6;
+    --pink: #f4b8e4;
+
+    /* "Aliases" */
+    --primary: var(--green);
+    --bg: var(--base);
+    --highlight: var(--teal);
+    --accent: var(--rosewater);
+}
+
+
+/* Global styles */
+
+html, body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+::selection {
+    background-color: var(--highlight);
+    color: var(--mantle);
+}
+
+h1 {
+    color: var(--primary);
+    padding: 1ch;
+}
+
+hr {
+    border: none;
+    border-bottom: var(--line-width) solid var(--primary);
+}
+
+a {
+    color: var(--highlight);
+}
+
+.subtext {
+    color: var(--subtext1);
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+
+/* Details/Summary */
+
+summary {
+    cursor: pointer;
+}
+
+summary::after {
+    color: var(--subtext0);
+    font-style: italic;
+    font-size: 0.9em;
+}
+details:open > summary:after {
+    content: " ⸱ See less...";
+}
+details:not(:open) > summary::after {
+    content: " ⸱ See more...";
+}
+
+summary::marker {
+  content: "";
+}
+
+
+
+/* Navigation links */
+
+nav {
+    border-bottom: var(--line-width) solid var(--primary);
+    padding-left: 1em;
+}
+
+nav > a {
+    min-width: 80px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 0.2em;
+    padding-bottom: 0.3em;
+
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+nav > a:hover {
+    text-decoration: underline;
+}
+
+nav > #current {
+    background-color: var(--primary);
+    color: var(--base);
+}
+
+
+/* Lists */
+
+li {
+    margin-bottom: 0.5em;
+
+    position: relative;
+}
+li::before {
+    color: var(--primary);
+    font-weight: bold;
+
+    position: absolute;
+    transition: left 0.1s;
+    left: -1.5ch;
+}
+li:hover::before {
+    left: -2ch;
+    color: var(--accent);
+}
+
+
+ul {
+    /* ::marker isn't well supported by safari :( */
+    list-style: none;
+}
+ul > li::before {
+    content: "> ";
+}
+
+ol {
+    /* ::marker isn't well supported by safari */
+    list-style: none;
+    counter-reset: index;
+}
+ol > li::before {
+    font-size: 1.6ch;
+    counter-increment: index;
+    content: counter(index) ". ";
+}
+
+/* Sections */
+
+/* Rainbows! */
+/* Header is green, so start from blue */
+section:nth-of-type(6n+1) { --section-colour: var(--sapphire) }
+section:nth-of-type(6n+2) { --section-colour: var(--lavender) }
+section:nth-of-type(6n+3) { --section-colour: var(--red) }
+section:nth-of-type(6n+4) { --section-colour: var(--peach) }
+section:nth-of-type(6n+5) { --section-colour: var(--yellow) }
+section:nth-of-type(6n+6) { --section-colour: var(--green) }
+
+section {
+    border: var(--line-width) solid var(--section-colour);
+    margin: 2rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem;
+    padding-top: 0;
+}
+
+section > h2, 
+section > h3, 
+section > h4, 
+section > h5, 
+section > h6 {
+    color: var(--section-colour);
+    
+    background-color: var(--bg);
+    align-self: center;
+    padding: 0 1ch 0 1ch;
+    
+    margin: 0;
+    margin-top: -0.6em;
+    margin-bottom: 0.5em;
+}
+
+
+/* Header */
+
+h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#site-icon {
+    display: inline-block;
+    height: 1.5em;
+}
+
+#site-name-wrapper {
+    overflow: hidden;
+
+    /* Fun effect to slant the edge of the slide transition */
+    transform: skewX(15deg);
+}
+#site-name {
+    padding: 0 1ch;
+
+    position: relative;
+    right: 100%;
+    transition: right 0.5s;
+
+    /* Undo the skew to fix the text warping */
+    display: inline-block;
+    transform: skewX(-15deg);
+}
+header:hover #site-name {
+    right: 0%;
+}
