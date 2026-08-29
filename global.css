@@ -1,6 +1,6 @@
 :root {
     /* --primary: #40a02b; */
-    --line-width: 0.2rem;
+    --line-width: 0.15rem;
 
     /* Palette */
     /*  Based on Catppuccin Frappe */
@@ -79,6 +79,9 @@ summary {
     cursor: pointer;
 }
 
+summary::marker {
+  content: "";
+}
 summary::after {
     color: var(--subtext0);
     font-style: italic;
@@ -89,10 +92,6 @@ details:open > summary:after {
 }
 details:not(:open) > summary::after {
     content: " ⸱ See more...";
-}
-
-summary::marker {
-  content: "";
 }
 
 
@@ -182,7 +181,7 @@ section {
 
     display: flex;
     flex-direction: column;
-    padding: 0.6rem;
+    padding: 0.6rem 1rem;
     padding-top: 0;
 }
 
@@ -199,7 +198,7 @@ section > h6 {
     
     margin: 0;
     margin-top: -0.6em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
 }
 
 
