@@ -23,10 +23,10 @@
 #social-links svg {
     width: 1.5em;
     height: 1.5em;
-}
-
-#social-links svg path {
-    fill: var(--primary);
+    
+    & path {
+        fill: var(--primary);
+    }
 }
 #social-links li:hover svg path {
     fill: var(--accent);
