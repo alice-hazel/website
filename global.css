@@ -180,6 +180,15 @@ section:nth-of-type(6n+4) { --section-colour: var(--peach) }
 section:nth-of-type(6n+5) { --section-colour: var(--yellow) }
 section:nth-of-type(6n+6) { --section-colour: var(--green) }
 
+/* If section is nested, start from red instead */
+section section:nth-of-type(6n+1) { --section-colour: var(--red) }
+section section:nth-of-type(6n+2) { --section-colour: var(--peach) }
+section section:nth-of-type(6n+3) { --section-colour: var(--yellow) }
+section section:nth-of-type(6n+4) { --section-colour: var(--green) }
+section section:nth-of-type(6n+5) { --section-colour: var(--sapphire) }
+section section:nth-of-type(6n+6) { --section-colour: var(--lavender) }
+
+
 section {
     border: var(--line-width) solid var(--section-colour);
     margin: 2rem 1rem;
