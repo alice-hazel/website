@@ -26,3 +26,12 @@ body > section {
     font-weight: bold;
     line-height: 1.2em;
 }
+
+.dates::before {
+    content: url(res/icons/calendar-subtext.svg);
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    vertical-align: center;
+    margin-right: 0.4ch;
+}
