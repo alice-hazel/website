@@ -114,7 +114,7 @@ nav > a {
     text-decoration: none;
     font-weight: bold;
 
-    &#current {
+    &[aria-current=page] {
         background-color: var(--primary);
         color: var(--base);
     }
