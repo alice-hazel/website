@@ -1,0 +1,39 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <link rel="icon" href="/assets/favicon.png" type="image/png" />
+    <title>{{ site.title }} | {{ page.title }}</title>
+    <link rel="stylesheet" href="/css/global.css"/>
+    <link rel="stylesheet" href="/css/{{ page.slug }}.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <meta charset="utf-8" />
+    <meta property="og:site-name" content="{{ site.title }}" />
+    <meta property="og:title" content="{{ site.title }} | {{ page.title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ site.url | append: page.url }}" />
+    <meta property="og:image" content="https://alicehazel.dev/assets/favicon.png" />
+    <meta name="theme-color" content="#a6e3a1">
+</head> 
+<body>
+
+<header>
+    <h1>
+        <img id="site-icon" src="/assets/favicon.png" alt="AH monogram" />
+        <span id="site-name-wrapper"><span id="site-name">Alice Hazel</span></span>
+    </h1>
+
+    <nav id="page-list">
+        {% for nav_item in site.data.navigation %}
+            <a {% if page.url == nav_item.url %}aria-current="page"{% endif %} href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+        {% endfor %}
+    </nav>
+</header>
+
+{{ content }}
+
+</body>
+</html>

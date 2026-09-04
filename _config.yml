@@ -1,0 +1,8 @@
+
+title: Alice Hazel
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://alicehazel.dev" # the base hostname & protocol
+
+# Build settings
+plugins:
+  - jekyll-feed
