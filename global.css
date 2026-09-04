@@ -189,6 +189,10 @@ section section:nth-of-type(6n+5) { --section-colour: var(--sapphire) }
 section section:nth-of-type(6n+6) { --section-colour: var(--lavender) }
 
 
+body > section {
+    border-width: 0px;
+    border-top-width: var(--line-width);
+}
 section {
     border: var(--line-width) solid var(--section-colour);
     margin: 2rem 1rem;

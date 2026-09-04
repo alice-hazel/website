@@ -1,15 +1,3 @@
-body > section {
-    /* TODO: Not sure about this style */
-    border-width: 0px;
-    border-top-width: var(--line-width);
-
-    /* >h2 {
-        border-bottom: var(--line-width) solid var(--section-colour);
-        align-self: stretch;
-        text-align: center;
-    } */
-}
-
 .rom-num {
     font-size: 0.9em;
 }
