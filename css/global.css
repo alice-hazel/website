@@ -73,27 +73,38 @@ a {
 }
 
 
-/* Details/Summary */
+/* Header */
 
-summary {
-    cursor: pointer;
+header h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
-
-summary::marker {
-  content: "";
-}
-summary::after {
-    color: var(--subtext0);
-    font-style: italic;
-    font-size: 0.9em;
-}
-details:open > summary:after {
-    content: " ⸱ See less...";
-}
-details:not(:open) > summary::after {
-    content: " ⸱ See more...";
+#site-icon {
+    display: inline-block;
+    height: 1.5em;
 }
 
+#site-name-wrapper {
+    overflow: hidden;
+
+    /* Fun effect to slant the edge of the slide transition */
+    transform: skewX(15deg);
+}
+#site-name {
+    padding: 0 1ch;
+
+    position: relative;
+    right: 100%;
+    transition: right 0.5s;
+
+    /* Undo the skew to fix the text warping */
+    display: inline-block;
+    transform: skewX(-15deg);
+}
+header:hover #site-name {
+    right: 0%;
+}
 
 
 /* Navigation links */
@@ -124,6 +135,68 @@ nav > a {
     }
 }
 
+#content {
+    margin: 0 1rem;
+}
+
+
+/* Sections */
+
+/* Rainbows! */
+/* Header is green, so start from blue */
+section:nth-of-type(6n+1) { --section-colour: var(--sapphire) }
+section:nth-of-type(6n+2) { --section-colour: var(--lavender) }
+section:nth-of-type(6n+3) { --section-colour: var(--red) }
+section:nth-of-type(6n+4) { --section-colour: var(--peach) }
+section:nth-of-type(6n+5) { --section-colour: var(--yellow) }
+section:nth-of-type(6n+6) { --section-colour: var(--green) }
+
+/* If section is nested, start from red instead */
+section section:nth-of-type(6n+1) { --section-colour: var(--red) }
+section section:nth-of-type(6n+2) { --section-colour: var(--peach) }
+section section:nth-of-type(6n+3) { --section-colour: var(--yellow) }
+section section:nth-of-type(6n+4) { --section-colour: var(--green) }
+section section:nth-of-type(6n+5) { --section-colour: var(--sapphire) }
+section section:nth-of-type(6n+6) { --section-colour: var(--lavender) }
+
+
+#content > section {
+    border-width: 0px;
+    border-top-width: var(--line-width);
+}
+section {
+    border: var(--line-width) solid var(--section-colour);
+    margin: 2rem 0;
+
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 1rem;
+    padding-top: 0;
+}
+
+section {
+    >h2, >h3, >h4, >h5, >h6 {
+        color: var(--section-colour);
+        
+        background-color: var(--bg);
+        align-self: center;
+        padding: 0 1ch 0 1ch;
+        
+        margin: 0;
+        margin-top: -0.6em;
+        margin-bottom: 0.5rem;
+
+        > svg {
+            height: 1.5em;
+            width: 1.5em;
+            alignment-baseline: central;
+            
+            path {
+                fill: var(--section-colour);
+            }
+        }
+    }
+}
 
 
 /* Lists */
@@ -169,94 +242,24 @@ ol {
     }
 }
 
-/* Sections */
 
-/* Rainbows! */
-/* Header is green, so start from blue */
-section:nth-of-type(6n+1) { --section-colour: var(--sapphire) }
-section:nth-of-type(6n+2) { --section-colour: var(--lavender) }
-section:nth-of-type(6n+3) { --section-colour: var(--red) }
-section:nth-of-type(6n+4) { --section-colour: var(--peach) }
-section:nth-of-type(6n+5) { --section-colour: var(--yellow) }
-section:nth-of-type(6n+6) { --section-colour: var(--green) }
+/* Details/Summary */
 
-/* If section is nested, start from red instead */
-section section:nth-of-type(6n+1) { --section-colour: var(--red) }
-section section:nth-of-type(6n+2) { --section-colour: var(--peach) }
-section section:nth-of-type(6n+3) { --section-colour: var(--yellow) }
-section section:nth-of-type(6n+4) { --section-colour: var(--green) }
-section section:nth-of-type(6n+5) { --section-colour: var(--sapphire) }
-section section:nth-of-type(6n+6) { --section-colour: var(--lavender) }
-
-
-body > section {
-    border-width: 0px;
-    border-top-width: var(--line-width);
-}
-section {
-    border: var(--line-width) solid var(--section-colour);
-    margin: 2rem 1rem;
-
-    display: flex;
-    flex-direction: column;
-    padding: 0.6rem 1rem;
-    padding-top: 0;
+summary {
+    cursor: pointer;
 }
 
-section {
-    >h2, >h3, >h4, >h5, >h6 {
-        color: var(--section-colour);
-        
-        background-color: var(--bg);
-        align-self: center;
-        padding: 0 1ch 0 1ch;
-        
-        margin: 0;
-        margin-top: -0.6em;
-        margin-bottom: 0.5rem;
-
-        > svg {
-            height: 1.5em;
-            width: 1.5em;
-            alignment-baseline: central;
-            
-            path {
-                fill: var(--section-colour);
-            }
-        }
-    }
+summary::marker {
+  content: "";
 }
-
-
-/* Header */
-
-header h1 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+summary::after {
+    color: var(--subtext0);
+    font-style: italic;
+    font-size: 0.9em;
 }
-#site-icon {
-    display: inline-block;
-    height: 1.5em;
+details:open > summary:after {
+    content: " ⸱ See less...";
 }
-
-#site-name-wrapper {
-    overflow: hidden;
-
-    /* Fun effect to slant the edge of the slide transition */
-    transform: skewX(15deg);
-}
-#site-name {
-    padding: 0 1ch;
-
-    position: relative;
-    right: 100%;
-    transition: right 0.5s;
-
-    /* Undo the skew to fix the text warping */
-    display: inline-block;
-    transform: skewX(-15deg);
-}
-header:hover #site-name {
-    right: 0%;
+details:not(:open) > summary::after {
+    content: " ⸱ See more...";
 }
