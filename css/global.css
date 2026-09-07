@@ -188,10 +188,14 @@ section {
         margin-top: -0.6em;
         margin-bottom: 0.5rem;
 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5ch;
+
         > svg {
             height: 1.5em;
             width: 1.5em;
-            alignment-baseline: central;
             
             path {
                 fill: var(--section-colour);
