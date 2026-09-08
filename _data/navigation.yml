@@ -1,8 +1,8 @@
 - title: Home
   url: /
 - title: Projects
-  url: /projects.html
+  url: /projects
 # - title: Blog
-#   url: /blog.html
+#   url: /blog/
 - title: CV
-  url: /cv.html
+  url: /cv
