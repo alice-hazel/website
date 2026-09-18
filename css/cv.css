@@ -9,6 +9,11 @@
 }
 
 
+#roles > section > h4 {
+    /* Match bottom margin */
+    margin-top: 0.5rem;
+}
+
 .role-details {
     text-align: center;
     font-weight: bold;
@@ -22,4 +27,8 @@
     height: 1.4em;
     vertical-align: middle;
     margin-right: 0.4ch;
+}
+
+.dates#cal-arrow::before {
+    content: url(/assets/icons/calendar-arrow-subtext.svg);
 }
